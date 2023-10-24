@@ -1,0 +1,16 @@
+---
+# tasks file for deploy-auth-data
+#
+
+- name: "debug sshpk_content"
+  debug:
+    msg: "{{ hostvars.testdev2.sshpk_content }}"
+
+- name: "debug totpfiles_content"
+  debug:
+    msg: "{{ hostvars.testdev2.totp_content }}"
+
+
+- import_tasks: init.yml
+- import_tasks: update-ldap-slurp.yml
+

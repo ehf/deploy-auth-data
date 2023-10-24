@@ -1,0 +1,15 @@
+---
+
+- name: "add user public keys to ldap"
+  ldap_attrs:
+    dn: "uid={{ item.item.pw_name }},ou=People,{{ ldap_search_base }}"
+    attributes:
+      sshPublicKey: "{{ item.content | b64decode | trim }}"
+    server_uri: "ldaps://{{ ldap_uri_host }}"
+    bind_dn: "{{ ldap_auth.bind_dn }}"
+    bind_pw: "{{ ldap_auth.bind_pw }}"
+    validate_certs: false
+  loop: "{{ hostvars.testdev2.sshpk_content }}"
+  tags:
+    - add-publickey-ldap
+

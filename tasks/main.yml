@@ -3,14 +3,14 @@
 #
 
 - name: "debug sshpk_content"
-  debug:
+  ansible.builtin.debug:
     msg: "{{ hostvars.testdev2.sshpk_content }}"
 
 - name: "debug totpfiles_content"
-  debug:
+  ansible.builtin.debug:
     msg: "{{ hostvars.testdev2.totp_content }}"
 
 
-- import_tasks: init.yml
+#- import_tasks: init.yml
 - import_tasks: update-ldap-slurp.yml
 

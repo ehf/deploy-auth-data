@@ -9,7 +9,7 @@
     bind_dn: "{{ ldap_auth.bind_dn }}"
     bind_pw: "{{ ldap_auth.bind_pw }}"
     validate_certs: false
-  loop: "{{ hostvars.testdev2.sshpk_content }}"
+  loop: "{{ hostvars.enrollment.sshpk_content }}"
   when:
     - not ( pub_key_content is search("PRIVATE KEY") or pub_key_content is search("^PuTTY-User-Key-File") )
   vars:

@@ -1,8 +1,3 @@
 ---
+# init.yml
 
-- name: "install openldap-clients software"
-  ansible.builtin.dnf:
-    name: [ 'openldap-clients', 'python3-ldap' ]
-    state: present
-  tags:
-    - always

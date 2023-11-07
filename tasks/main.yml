@@ -4,11 +4,11 @@
 
 - name: "debug sshpk_content"
   ansible.builtin.debug:
-    msg: "{{ hostvars.testdev2.sshpk_content }}"
+    msg: "{{ hostvars.enrollment.sshpk_content }}"
 
 - name: "debug totpfiles_content"
   ansible.builtin.debug:
-    msg: "{{ hostvars.testdev2.totp_content }}"
+    msg: "{{ hostvars.enrollment.totp_content }}"
 
 
 #- import_tasks: init.yml
